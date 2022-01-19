@@ -55,12 +55,12 @@ class HomeScreen extends StatelessWidget {
             FloatingActionButton.extended(
               elevation: 4.0,
               onPressed: (){
-                var url = _urlInputController.text;
-                if(url.isEmpty){
+                var textData = _urlInputController.text;
+                if(textData.isEmpty){
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Your input can't be empty.")));
                 }else{
-                  var formattedUrl = formatQRUrl(url);
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => QRDetailsScreen(url: formattedUrl),));
+                  var formattedUrl = formatQRUrl(textData);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => QRDetailsScreen(url: formattedUrl, textData: textData,),));
                 }
               },
               label: Row(
