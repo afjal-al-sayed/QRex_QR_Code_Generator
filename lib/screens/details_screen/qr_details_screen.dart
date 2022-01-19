@@ -1,5 +1,11 @@
+import 'dart:typed_data';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:qrex_qr_code_generator/utils/constants.dart';
 
 class QRDetailsScreen extends StatefulWidget {
@@ -14,6 +20,24 @@ class QRDetailsScreen extends StatefulWidget {
 }
 
 class _QRDetailsScreenState extends State<QRDetailsScreen> {
+
+  _saveImageToGallery() async {
+    var status = await Permission.storage.request();
+    if(status.isGranted){
+      var response = await Dio().get(
+          widget.url,
+          options: Options(responseType: ResponseType.bytes)
+      );
+      final result = await ImageGallerySaver.saveImage(
+          Uint8List.fromList(response.data),
+          quality: 80,
+          name: "QRex_${widget.textData}"
+      );
+      print(result);
+      Fluttertoast.showToast(msg: "QR Code saved successfully.");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,7 +130,9 @@ class _QRDetailsScreenState extends State<QRDetailsScreen> {
                       SizedBox(height: 32.0,),
                       FloatingActionButton.extended(
                         elevation: 4.0,
-                        onPressed: (){},
+                        onPressed: (){
+                          _saveImageToGallery();
+                        },
                         label: Row(
                           children: [
                             Text(
