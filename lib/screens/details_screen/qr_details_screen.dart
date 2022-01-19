@@ -7,6 +7,7 @@ class QRDetailsScreen extends StatefulWidget {
 
   final String url;
   final String textData;
+  final double textQrGap = 24.0;
 
   @override
   State<QRDetailsScreen> createState() => _QRDetailsScreenState();
@@ -22,74 +23,128 @@ class _QRDetailsScreenState extends State<QRDetailsScreen> {
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             children: [
               SizedBox(height: 32.0,),
-              Text(
-                "Bingo! Here is your QR Code:",
-                // text,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 22.0,
-                ),
-              ),
-              SizedBox(height: 32.0,),
               CachedNetworkImage(
+                width: MediaQuery.of(context).size.width / 1.5,
                 imageUrl: widget.url,
-                height: MediaQuery.of(context).size.width / 1.5,
-                // placeholder: (context, url) => Image.asset("assets/images/qr_loading.gif"),
+                placeholder: (context, url){
+                  return Column(
+                    children: [
+                      Text(
+                        "Generating QR Code... Please wait...",
+                        // text,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 22.0,
+                        ),
+                      ),
+                      SizedBox(height: widget.textQrGap,),
+                      Image.asset("assets/images/qr_loading.gif"),
+                    ],
+                  );
+                },
                 errorWidget: (context, url, error) {
-                  return Image.asset("assets/images/qr_error.jpg");
+                  return Column(
+                    children: [
+                      Text(
+                        "Unable to generate QR Code. Please check your internet connection.",
+                        // text,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 22.0,
+                        ),
+                      ),
+                      SizedBox(height: widget.textQrGap,),
+                      Image.asset("assets/images/qr_error.jpg"),
+                      SizedBox(height: 32.0,),
+                      FloatingActionButton.extended(
+                        elevation: 4.0,
+                        onPressed: (){
+                          Navigator.pop(context);
+                        },
+                        label: Row(
+                          children: [
+                            Icon(Icons.arrow_back),
+                            SizedBox(width: 8.0,),
+                            Text(
+                                "Go Back",
+                                style: TextStyle(
+                                    fontSize: 16.0
+                                )
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
                 },
-                progressIndicatorBuilder: (context, url, progress) {
+                imageBuilder: (context, imageProvider) {
+                  return Column(
+                    children: [
+                      Text(
+                        "Bingo! Your QR Code is here:",
+                        // text,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 22.0,
+                        ),
+                      ),
+                      SizedBox(height: widget.textQrGap,),
+                      Image(image: imageProvider,),
+                      SizedBox(height: 8.0,),
+                      Text(
+                          widget.textData,
+                          style: TextStyle(
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.w500
+                          )
+                      ),
+                      SizedBox(height: 32.0,),
+                      FloatingActionButton.extended(
+                        elevation: 4.0,
+                        onPressed: (){},
+                        label: Row(
+                          children: [
+                            Text(
+                                "Save to phone",
+                                style: TextStyle(
+                                    fontSize: 16.0
+                                )
+                            ),
+                            SizedBox(width: 8.0,),
+                            Icon(Icons.save)
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 16.0,),
+                      FloatingActionButton.extended(
+                        elevation: 4.0,
+                        onPressed: (){
+                          Navigator.pop(context);
+                        },
+                        label: Row(
+                          children: [
+                            Text(
+                                "Generate Again",
+                                style: TextStyle(
+                                    fontSize: 16.0
+                                )
+                            ),
+                            SizedBox(width: 8.0,),
+                            Icon(Icons.restart_alt)
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                }
+                /*progressIndicatorBuilder: (context, url, progress) {
                   return Image.asset("assets/images/qr_loading.gif");
-                },
-              ),
-              SizedBox(height: 8.0,),
-              Text(
-                widget.textData,
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.w500
-                )
-              ),
-              SizedBox(height: 32.0,),
-              FloatingActionButton.extended(
-                elevation: 4.0,
-                onPressed: (){},
-                label: Row(
-                  children: [
-                    Text(
-                        "Save to phone",
-                        style: TextStyle(
-                            fontSize: 16.0
-                        )
-                    ),
-                    SizedBox(width: 8.0,),
-                    Icon(Icons.save)
-                  ],
-                ),
-              ),
-              SizedBox(height: 16.0,),
-              FloatingActionButton.extended(
-                elevation: 4.0,
-                onPressed: (){
-                  Navigator.pop(context);
-                },
-                label: Row(
-                  children: [
-                    Text(
-                        "Generate Again",
-                        style: TextStyle(
-                            fontSize: 16.0
-                        )
-                    ),
-                    SizedBox(width: 8.0,),
-                    Icon(Icons.restart_alt)
-                  ],
-                ),
+                },*/
               ),
             ],
           ),
