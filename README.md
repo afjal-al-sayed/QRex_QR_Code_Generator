@@ -1,16 +1,24 @@
-# qrex_qr_code_generator
+# QRex - QR Code Generator
 
-An app for generating QR Codes from text.
+An app for generating QR Codes from texts and URLs.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+ - Generate QR Code of any Text or URL
+ - Works super fast & consistant
+ - Save QR Codes in your device as image
+ - Image Caching saves your data & loads instantly
+ - Clean & Modern User Interface
+ - Availabe for both Android & IOS
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Here goes images
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Try out QRex?
+
+Android: [Download QRex.apk](https://www.goggle.com)
+
+## Developer
+
+Hi there! I am Afjal Al Sayed. I create Android apps for solving problems and to make things easier. Try out my new app QRex - QR Code Generator. If you have any query related to it don't hasitate to [e-mail me](mailto:sayed01851@gmail.com).
