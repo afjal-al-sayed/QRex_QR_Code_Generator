@@ -12,6 +12,7 @@ class BaseApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: CONSTANTS.APP_NAME,
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
       theme: ThemeData(
