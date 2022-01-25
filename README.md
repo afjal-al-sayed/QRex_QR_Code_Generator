@@ -20,11 +20,11 @@ An app for generating QR Codes from texts and URLs.
 
 ## Try out QRex?
 
-Android: [Download QRex.apk](https://www.goggle.com)
+Android: [Download QRex.apk](build_apk/QRex_QR_Code_Generator.apk)
 
 ## Developer
 
-Hi there! I am Afjal Al Sayed. I create Android apps for solving problems and to make things easier. Try out my new app QRex - QR Code Generator. If you have any query related to it don't hasitate to [e-mail me](mailto:sayed01851@gmail.com). And also check out my other stuffs [here](kjad).
+Hi there! I am Afjal Al Sayed. I create Android apps for solving problems and to make things easier. Try out my new app QRex - QR Code Generator. If you have any query related to it don't hasitate to [e-mail me](mailto:sayed01851@gmail.com). And also check out my other stuffs [here](https://github.com/afjal-al-sayed-2048).
 
 ## Credits
 
