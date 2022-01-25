@@ -13,12 +13,12 @@ An app for generating QR Codes from texts and URLs.
 
 ## Screenshots
 
-<!-- <img src="screenshots/screenshot_1.png" height="480">
-<img src="screenshots/screenshot_2.png" height="480">
-<img src="screenshots/screenshot_3.png" height="480"> -->
-![hello](screenshots/screenshot_1.png)
+<img src="screenshots/screenshot_1.png" width="256">
+<img src="screenshots/screenshot_2.png" width="256">
+<img src="screenshots/screenshot_3.png" width="256">
+<!-- ![hello](screenshots/screenshot_1.png)
 ![hello](screenshots/screenshot_2.png)
-![hello](screenshots/screenshot_3.png)
+![hello](screenshots/screenshot_3.png) -->
 
 ## Try out QRex?
 
