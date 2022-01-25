@@ -13,9 +13,7 @@ An app for generating QR Codes from texts and URLs.
 
 ## Screenshots
 
-<img src="screenshots/screenshot_1.png" width="256">
-<img src="screenshots/screenshot_2.png" width="256">
-<img src="screenshots/screenshot_3.png" width="256">
+<img src="screenshots/screenshot_1.png" width="256"><img src="screenshots/screenshot_2.png" width="256"><img src="screenshots/screenshot_3.png" width="256">
 <!-- ![hello](screenshots/screenshot_1.png)
 ![hello](screenshots/screenshot_2.png)
 ![hello](screenshots/screenshot_3.png) -->
