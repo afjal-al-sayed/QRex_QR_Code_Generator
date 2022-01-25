@@ -9,6 +9,7 @@
         android:label="QRex - QR Code Generator"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:requestLegacyExternalStorage="true">
         <activity
             android:name=".MainActivity"
@@ -37,4 +38,5 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
 </manifest>
