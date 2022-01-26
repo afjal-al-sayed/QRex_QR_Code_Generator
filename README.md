@@ -33,3 +33,4 @@ Hi there! I am Afjal Al Sayed. I create Android apps for solving problems and to
 ## Copyright
 
 All rights reserved by Afjal Al Sayed. Copyright &copy; 2022.
+<br/><small><i>This app may contain other brand’s logos or titles. These are the properties of their respective owners. QRex neither has any relation to these brands nor is associated with them. These assets are used for identification purposes only.</i></small>
